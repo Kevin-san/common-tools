@@ -11,7 +11,16 @@ public class ToolDate {
 		return dateMaps.get(key);
 	}
 
-	public void put(Integer key,List<Integer> dateList) {
+	public void put(Integer key, List<Integer> dateList) {
 		this.dateMaps.put(key, dateList);
 	}
+
+	public Map<Integer, List<Integer>> getDateMaps() {
+		return dateMaps;
+	}
+
+	public void setDateMaps(Map<Integer, List<Integer>> dateMaps) {
+		this.dateMaps = dateMaps;
+	}
+
 }

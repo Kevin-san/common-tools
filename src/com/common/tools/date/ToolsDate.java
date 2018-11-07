@@ -51,12 +51,15 @@ public class ToolsDate {
 		Integer endHoliday = Collections.max(hollys);
 		Integer beginDay = convertToSpecDate(beginHoliday, "0101");
 		Integer endDay = convertToSpecDate(endHoliday, "1231");
+		long days = getDays(beginDay, endDay);
 		if (!bizdates.containsKey(region)) {
 			List<Integer> bizDates = new ArrayList<>();
-			for (LocalDate localDate = parse(beginDay); format(localDate) < endDay; localDate.plusDays(1l)) {
+			LocalDate localDate = parse(beginDay);
+			for (long i=0; i<days; i++) {
 				if (!isHollyDay(region, localDate)) {
 					bizDates.add(format(localDate));
 				}
+				localDate = localDate.plusDays(i);
 			}
 			bizdates.put(region, bizDates);
 		}
@@ -146,8 +149,8 @@ public class ToolsDate {
 		for (int i = 0; i < bizDates.size(); i++) {
 			Integer dateInt = bizDates.get(i);
 			LocalDate date = parse(dateInt);
-			Integer year = dateInt / 1000;
-			Integer key = year + getWeekOfYear(date);
+			Integer year = dateInt / 10000;
+			Integer key = year*10000 + getWeekOfYear(date);
 			weeks.add(key);
 		}
 		return ToolsArray.toUnique(weeks);
