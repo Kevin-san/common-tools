@@ -17,8 +17,10 @@ public class Constant {
 	public static final String VERTICAL = "|";
 	public static final String STAR = "*";
 	public static final String SLANT = "\\\\";
+	public static final String SPACE = " ";
 	public static final String  PLUS = "+";
-	
+	public static final String  L_BRACKET="[";
+	public static final String  R_BRACKET="]";
 	public static final String CONV_SPOT = "\\.";
 	public static final String CONV_VERTICAL = "\\|";
 	public static final String CONV_STAR= "\\*";

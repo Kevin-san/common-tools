@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+
 import com.common.tools.ex.ToolsException;
 
 public class PropertiesUtils {
-
 	public static Properties loadPropertiesWithSuperPath(String property) throws ToolsException {
 		try (InputStream in = new FileInputStream(new File(property));) {
 			Properties prop = new Properties();

@@ -1,6 +1,7 @@
 package com.common.tools.date;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
@@ -372,5 +373,9 @@ public class ToolsDate {
 
 	public static String format(String dateStr, String srcPattern, String targetPattern) {
 		return parse(dateStr, srcPattern).format(DateTimeFormatter.ofPattern(targetPattern));
+	}
+	
+	public static String nowTime() {
+		return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS"));
 	}
 }
